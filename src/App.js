@@ -2,7 +2,7 @@ import React,{Component} from "react";
 import CardList from "./CardList";
 import { robots } from "./robots";
 import SearchBox from "./SearchBox";
-
+import Scroll from "./Scroll"
 
 
 
@@ -28,10 +28,12 @@ class App extends Component{
             return robots.name.toLowerCase().includes(this.state.searchfield.toLowerCase())
         });
         return(
-            <div className="flex flex-col items-center">
+            <div className="flex flex-col items-center text-center">
                 <h1 className="text-4xl font-bold my-3 underline underline-offset-4 ">RoboFriends</h1>
                 <SearchBox seachchange={this.onSearchChange} />
+                <Scroll>
                 <CardList robots={filteredrobots} />
+                </Scroll>
             </div>
         );
     }
